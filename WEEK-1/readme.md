@@ -10,7 +10,7 @@ The main goal was to go through the full data cleaning process — from loading 
 
 ## Dataset used
 
-- **File name:** `ecommerce_dataset.csv`  
+- **File name:** `e-commerce1_dataset.csv`  
 - **Location:** `WEEK-1/` folder  
 - **What it contains:** E-commerce product listings with columns like product ID, title, category, price, discount, rating, seller name, customer reviews, and more.
 
@@ -26,7 +26,8 @@ First I imported pandas and loaded the csv file into a DataFrame called `ecommer
 
 ```python
 import pandas as pd
-ecommerce_data = pd.read_csv("DataSet/ecommerce_dataset.csv")
+import numpy as np
+ecommerce_data = pd.read_csv("e-commerce1_dataset.csv")
 ```
 
 A DataFrame is basically like a table (similar to Excel) where we can do all kinds of operations on the data.
