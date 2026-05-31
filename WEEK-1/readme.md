@@ -11,7 +11,7 @@ The main goal was to go through the full data cleaning process — from loading 
 ## Dataset used
 
 - **File name:** `ecommerce_dataset.csv`  
-- **Location:** `DataSet/` folder  
+- **Location:** `WEEK-1/` folder  
 - **What it contains:** E-commerce product listings with columns like product ID, title, category, price, discount, rating, seller name, customer reviews, and more.
 
 Some columns like `discount`, `what_customers_said`, `seller_name`, `videos`, `seller_information`, and `variations` had missing values which I handled in step 3.
