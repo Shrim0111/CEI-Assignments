@@ -174,7 +174,7 @@ ecommerce_data.to_csv('cleaned_ecommerce_data.csv', index=False)
 
 ## Output Files
 
-  `Untitled2.ipynb`   Main Jupyter Notebook with all code and explanations  
+  `solutions.ipynb`   Main Jupyter Notebook with all code and explanations  
   `cleaned_ecommerce_data.csv`   Final cleaned dataset with the `total_amount` column added  
 
 ---
