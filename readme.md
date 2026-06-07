@@ -1,197 +1,340 @@
-# Assignment 1 - Python Basics and Data Exploration using Pandas
 
-## What this assignment is about
+# Assignment 2 (A) – E-Commerce Database Analysis Using SQL
 
-This is my first assignment where I had to learn Python basics and use the **Pandas** library to explore and clean a real dataset. The dataset I used is an e-commerce dataset (like Amazon product listings) which had product names, prices, discounts, ratings, seller info, etc.
+## What this Assignment is About
 
-The main goal was to go through the full data cleaning process — from loading raw data to saving a final cleaned version.
-
----
-
-## Dataset used
-
-- **File name:** `e-commerce1_dataset.csv`  
-- **Location:** `WEEK-1/` folder  
-- **What it contains:** E-commerce product listings with columns like product ID, title, category, price, discount, rating, seller name, customer reviews, and more.
-
-Some columns like `discount`, `what_customers_said`, `seller_name`, `videos`, `seller_information`, and `variations` had missing values which I handled in step 3.
+This assignment focused on understanding relational databases and writing SQL queries to analyze customer, product, and order data. The objective was to retrieve business insights while learning database concepts such as constraints, indexes, joins, aggregation, transactions, and ACID properties.
 
 ---
 
-## Steps I followed
+## Database Schema Used
 
-### Step 1 — Loading the CSV into a DataFrame
+The database consists of four tables:
 
-First I imported pandas and loaded the csv file into a DataFrame called `ecommerce_data`.
-
-```python
-import pandas as pd
-import numpy as np
-ecommerce_data = pd.read_csv("e-commerce1_dataset.csv")
-```
-
-A DataFrame is basically like a table (similar to Excel) where we can do all kinds of operations on the data.
+* **customers** – Customer details and membership information
+* **products** – Product and pricing information
+* **orders** – Order records and status details
+* **order_items** – Item-level order information
 
 ---
 
-### Step 2 — Exploring the Data
+## Entity Relationships
 
-Before doing anything with the data, I first tried to understand what it looks like — how many rows and columns, what the column names are, and what type of data each column holds.
-
-```python
-ecommerce_data.head()       # shows first 5 rows by default
-ecommerce_data.head(2)      # we can pass any number to see that many rows
-ecommerce_data.tail()       # shows last 5 rows
-ecommerce_data.tail(2)
-
-ecommerce_data.shape        # gives (number of rows, number of columns)
-ecommerce_data.columns      
-list(ecommerce_data.columns) # list of all column names
-
-ecommerce_data.dtypes       # data type of each column
-ecommerce_data['product_id'].dtypes   # data type of a single column
+```text
+customers (1:N) orders
+orders (1:N) order_items
+products (1:N) order_items
 ```
 
-`head()` and `tail()` are useful to quickly see what the data looks like. `.shape` tells the size of the dataset and `.dtypes` is important because before doing any math operations we need to know if a column is int/float or string.
+Foreign Keys:
+
+* orders.customer_id → customers.customer_id
+* order_items.order_id → orders.order_id
+* order_items.product_id → products.product_id
 
 ---
 
-### Step 3 — Handling Missing Values
+## Steps I Followed
 
-This was a pretty important step. Real world datasets almost always have missing values and if we don't handle them the analysis can give wrong results or throw errors.
+### Step 1 – Creating Database Tables
 
-First I checked which columns have missing values:
+* Created tables using CREATE TABLE.
+* Defined Primary Keys and Foreign Keys.
+* Applied constraints such as NOT NULL, UNIQUE, CHECK, and DEFAULT.
 
-```python
-ecommerce_data.isnull().sum()
+### Step 2 – Loading Sample Data
+
+* Inserted sample records into all tables.
+* Verified successful data insertion.
+
+### Step 3 – Basic SQL Operations
+
+* Used SELECT statements.
+* Retrieved specific columns.
+* Worked with DISTINCT values.
+* Studied Primary Keys and Constraints.
+
+### Step 4 – Filtering Records
+
+* Applied WHERE conditions.
+* Used AND, OR, and BETWEEN operators.
+* Filtered records based on category, status, and dates.
+
+### Step 5 – Working with Indexes
+
+* Understood index creation and usage.
+* Learned query optimization techniques.
+* Explored SARGable queries.
+
+### Step 6 – Aggregation and Analysis
+
+* Used COUNT(), SUM(), AVG(), MIN(), and MAX().
+* Performed GROUP BY and HAVING operations.
+
+### Step 7 – Joins and Relationships
+
+* Implemented INNER JOIN, LEFT JOIN, and RIGHT JOIN.
+* Combined data across multiple tables.
+
+### Step 8 – Advanced SQL Concepts
+
+* Used CASE statements.
+* Studied Foreign Keys and Referential Integrity.
+* Implemented Transactions and ACID concepts.
+
+## SQL Concepts Used
+
+* SELECT
+* DISTINCT
+* WHERE
+* BETWEEN
+* GROUP BY
+* HAVING
+* JOINS
+* CASE
+* INDEXES
+* PRIMARY KEY
+* FOREIGN KEY
+* TRANSACTIONS
+* ACID PROPERTIES
+
+## Output Files
+
+```text
+schema.sql
+insert_data.sql
+solutions.sql
+README.md
 ```
 
-Then I filled the missing values based on what made sense for each column:
+## Tools Used
 
-```python
-ecommerce_data['discount'] = ecommerce_data['discount'].fillna(0)
-# discount is numeric so filling with 0 makes sense (no discount)
+* MySQL Workbench
+* MySQL Database
+* SQL
 
-ecommerce_data['what_customers_said'] = ecommerce_data['what_customers_said'].fillna('No reviews')
-# if no review exists, we fill it with a placeholder text
+## What I Learned From This Assignment
 
-ecommerce_data['seller_name'] = ecommerce_data['seller_name'].fillna('Unknown Seller')
-# if no seller_name exists, we fill it with a placeholder text
+* Database design and relationships
+* Primary Keys and Foreign Keys
+* Data filtering and aggregation
+* Joins and multi-table queries
+* Query optimization using indexes
+* Transactions and ACID properties
 
-ecommerce_data['videos'] = ecommerce_data['videos'].fillna('Unknown')
+# Assignment 2(B) – SQL-Based Data Analysis Using MySQL
 
-ecommerce_data['seller_information'] = ecommerce_data['seller_information'].fillna('[]')
-ecommerce_data['variations'] = ecommerce_data['variations'].fillna('[]')
-# filling with '[]' because these columns probably store list-type data
+## What this Assignment is About
+
+This assignment focused on analyzing the Superstore dataset using SQL. The objective was to import data into MySQL, perform exploratory analysis, apply filters, generate summaries, identify top-performing entities, and validate data quality.
+
+## Dataset Used
+
+* **Dataset:** Sample Superstore
+* **Database:** superstore
+* **Table:** sample_superstore
+
+Dataset includes:
+
+* Orders
+* Customers
+* Products
+* Sales
+* Profit
+* Quantity
+* Categories
+* Regions
+
+
+## Steps I Followed
+
+### Step 1 – Importing Dataset
+
+* Created the database.
+* Imported the CSV dataset into MySQL.
+* Verified successful import.
+
+### Step 2 – Exploring Data
+
+* Examined schema and column details.
+* Viewed sample records.
+* Checked data types.
+
+### Step 3 – Cleaning Column Names
+
+* Renamed columns containing spaces and special characters.
+* Improved query readability.
+
+### Step 4 – Filtering Data
+
+* Applied WHERE conditions.
+* Filtered records by region, category, sales, and dates.
+
+### Step 5 – Aggregation and Analysis
+
+* Used SUM(), AVG(), and COUNT().
+* Performed category-wise sales and profit analysis.
+
+### Step 6 – Ranking Results
+
+* Used ORDER BY and LIMIT.
+* Identified top products and categories.
+
+### Step 7 – Business Use Cases
+
+* Identified top customers.
+* Found most profitable customers.
+* Detected duplicate records.
+
+### Step 8 – Data Validation
+
+* Performed row-count validation.
+* Checked negative profits and high discounts.
+* Verified customer counts.
+
+
+## SQL Concepts Used
+
+* SELECT
+* WHERE
+* BETWEEN
+* GROUP BY
+* HAVING
+* ORDER BY
+* LIMIT
+* SUM()
+* AVG()
+* COUNT()
+* DISTINCT
+* Data Validation
+* Duplicate Detection
+
+
+## Output Files
+
+```text
+solutions.sql
+Sample_Superstore.csv
+README.md
 ```
 
-**Note:** Instead of writing `ecommerce_data['column'] = ecommerce_data['column'].fillna(value)` we can also use `ecommerce_data['column'].fillna(value, **inplace**=True)` which modifies the original dataframe directly without needing to reassign.
 
-After filling I ran `isnull().sum()` again to confirm all missing values were handled.
+## Tools Used
+
+* MySQL Workbench
+* MySQL Database
+* SQL
+
+
+## What I Learned From This Assignment
+
+* Importing CSV data into MySQL
+* Exploring and cleaning datasets
+* Data filtering and aggregation
+* Customer and product performance analysis
+* Duplicate detection techniques
+* Data validation and quality checks
+* Extracting business insights using SQL
+
+
+# Assignment 1 – Python Basics and Data Exploration Using Pandas
+
+## What this Assignment is About
+
+This assignment focused on learning Python basics and using the Pandas library for data exploration and cleaning. The objective was to load a real-world e-commerce dataset, handle missing values, perform basic data analysis, and save a cleaned version of the dataset.
 
 ---
 
-### Step 4 — Basic Operations (Filtering and Selecting)
+## Dataset Used
 
-Here I practiced filtering rows based on conditions and selecting specific columns.
+* **File Name:** `e-commerce1_dataset.csv`
+* **Location:** `WEEK-1/`
+* **Dataset Type:** E-commerce Product Listings
+* **Contains:**
 
-**Filtering rows:**
-```python
-# products with 80% or more discount
-ecommerce_data[ecommerce_data['discount'] >= 80]
-
-# products with rating 4.6 or above
-ecommerce_data[ecommerce_data['rating'] >= 4.6]
-
-# both conditions together using & operator
-ecommerce_data[(ecommerce_data['discount'] >= 80) & (ecommerce_data['rating'] >= 4.6)]
-```
-
-**Selecting specific columns:**
-```python
-ecommerce_data[['title', 'initial_price', 'final_price', 'discount']]
-
-ecommerce_data[['product_id', 'title', 'category', 'rating', 'ratings_count']]
-
-ecommerce_data[['seller_name', 'seller_information', 'best_offer', 'more_offers']]
-```
-
-Selecting only relevant columns is useful when the dataset has too many columns and we only care about a few of them.
+  * Product Information
+  * Pricing Details
+  * Discounts
+  * Ratings & Reviews
+  * Seller Information
 
 ---
 
-### Step 5 — Checking and Removing Duplicates
+## Steps I Followed
 
-Duplicate rows can mess up analysis so it's good practice to check for them.
+### Step 1 – Loading the Dataset
 
-```python
-ecommerce_data.duplicated().sum()
-```
+* Imported Pandas and NumPy.
+* Loaded the CSV file into a DataFrame.
 
-In this dataset, **no duplicate rows were found**. But if there were any, we can remove them using:
+### Step 2 – Exploring the Data
 
-```python
-ecommerce_data.drop_duplicates()
-```
+* Viewed sample records using `head()` and `tail()`.
+* Checked dataset dimensions, columns, and data types.
 
----
+### Step 3 – Handling Missing Values
 
-### Step 6 — Creating a Derived Column (total_amount)
+* Identified missing values using `isnull()`.
+* Filled missing values using appropriate default values.
 
-The task was to create a new column `total_amount = price × quantity`. In this dataset there was no separate quantity column so I used `ratings_count` in its place.
+### Step 4 – Filtering and Selecting Data
 
-But there was a problem — the `final_price` column was stored as a **string** (with ₹ symbol and commas like `"₹1,299.00"`), not as a number. So I couldn't directly multiply it.
+* Applied filters based on discount and rating.
+* Selected relevant columns for analysis.
 
-I had to first clean and convert it:
+### Step 5 – Checking Duplicates
 
-```python
-ecommerce_data['final_price'] = ecommerce_data['final_price'].str.replace(r'[₹,"]', '', regex=True).astype(float).astype(int)
-```
+* Checked for duplicate records.
+* Verified data uniqueness.
 
-What this line does:
-- `.str.replace(r'[₹,"]', '', regex=True)` — removes the ₹ symbol, commas, and " from the string
-- `.astype(float)` — converts the cleaned string to a float first
-- `.astype(int)` — then converts to integer
+### Step 6 – Creating a New Column
 
-After that creating the new column was simple:
+* Cleaned the `final_price` column.
+* Created a new `total_amount` column using existing data.
 
-```python
-ecommerce_data['total_amount'] = ecommerce_data['final_price'] * ecommerce_data['ratings_count']
-```
+### Step 7 – Saving the Cleaned Dataset
+
+* Exported the cleaned dataset to a new CSV file.
 
 ---
 
-### Step 7 — Saving the Cleaned Dataset
+## Python Concepts Used
 
-Finally I saved the cleaned dataframe as a new CSV file so the original file stays unchanged.
-
-```python
-ecommerce_data.to_csv('cleaned_ecommerce_data.csv', index=False)
-```
-
-`index=False` means we don't want to save the row numbers (index) as a column in the CSV.
+* Pandas DataFrame
+* Data Exploration
+* Missing Value Handling
+* Filtering & Selection
+* Duplicate Detection
+* Data Type Conversion
+* Column Creation
+* CSV Export
 
 ---
 
 ## Output Files
 
-  `solutions.ipynb`   Main Jupyter Notebook with all code and explanations  
-  `cleaned_ecommerce_data.csv`   Final cleaned dataset with the `total_amount` column added  
+```text
+solutions.ipynb              → Jupyter Notebook containing all code
+cleaned_ecommerce_data.csv   → Final cleaned dataset
+```
 
 ---
 
 ## Libraries Used
 
-- **Pandas** — for loading, exploring, cleaning and saving data
+* Pandas
+* NumPy
 
 ---
 
-## What I learned from this assignment
+## What I Learned From This Assignment
 
-- How to load and explore a real dataset using Pandas
-- How `.head()`, `.tail()`, `.shape`, `.dtypes` work and why they are useful
-- Why handling missing values is important and different ways to do it (`fillna`)
-- How to filter rows using conditions and select specific columns
-- That sometimes data looks numeric but is actually stored as a string — and how to fix that using `.str.replace()` and `.astype()`
-- How to create new columns from existing ones
-- How to save the final cleaned data as a CSV
+* How to load and explore datasets using Pandas.
+* How to handle missing values effectively.
+* How to filter and analyze data.
+* How to clean and convert data types.
+* How to create derived columns.
+* How to detect duplicates in a dataset.
+* How to save processed data for further analysis.
+
+
