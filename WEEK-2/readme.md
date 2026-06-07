@@ -191,7 +191,7 @@ Generated insights related to:
 * How SQL can be used to extract meaningful business insights from raw data.
 
 
-# Assignment 2 – E-Commerce Sales Database Analysis Using SQL
+# Assignment 2(B) – E-Commerce Sales Database Analysis Using SQL
 
 ## What this Assignment is About
 
