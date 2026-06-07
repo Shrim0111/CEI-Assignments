@@ -9,10 +9,16 @@ use superstore;
 SELECT * FROM superstore.`sample _superstore`; -- this will display all the columns of the CSV File
 
 -- 2.Explore table (schema, sample data). 
+-- SCHEMA
 DESCRIBE superstore.`sample _superstore`;
+-- SAMPLE DATA
+   -- First 10 rows
+   SELECT * FROM  superstore.`sample _superstore` LIMIT 10;
+   -- Last 10 rows
+   SELECT * FROM  superstore.`sample _superstore` ORDER BY row_id DESC LIMIT 10;
 
-SELECT * FROM superstore.`sample _superstore`
-LIMIT 5;
+   SELECT * FROM superstore.`sample _superstore`
+   LIMIT 5;
 
 -- Since 'Order' and 'Date' are keywords IN MySql. I have renamed some columns due to error 
 ALTER TABLE `sample _superstore`
@@ -49,8 +55,12 @@ ALTER TABLE `sample _superstore`
 RENAME COLUMN `Product Name` TO product_name;
 
 -- 3.Apply WHERE filters (region, category, date, sales). 
-SELECT * FROM superstore.`sample _superstore`
-WHERE Region = 'South';
+-- Single region
+SELECT * FROM `sample _superstore`
+WHERE Region = 'West';
+-- Multiple regions
+SELECT * FROM `sample _superstore`
+WHERE Region IN ('West', 'East');
 
 SELECT * FROM superstore.`sample _superstore`
 WHERE Category = 'Office Supplies';
@@ -91,7 +101,17 @@ GROUP BY Category;
 
 -- 6.Solve Use Cases (Monthly Trends, Top Customers, Duplicates).
     -- Monthly Trends
-    
+    SELECT
+    YEAR(STR_TO_DATE(Order_Date, '%m/%d/%Y'))  AS order_year,
+    MONTH(STR_TO_DATE(Order_Date, '%m/%d/%Y')) AS order_month,
+    MONTHNAME(STR_TO_DATE(Order_Date, '%m/%d/%Y')) AS month_name,
+    COUNT(DISTINCT Order_ID)                   AS total_orders,
+    SUM(Sales)                                   AS total_sales,
+    SUM(Profit)                                  AS total_profit,
+    ROUND(SUM(Profit) / SUM(Sales) * 100, 2)     AS profit_margin_pct
+    FROM superstore.`sample _superstore`
+    GROUP BY order_year, order_month, month_name
+   ORDER BY order_year, order_month;
 
     -- TOP 5 Customers 
     SELECT Customer_Name,
