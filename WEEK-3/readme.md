@@ -46,7 +46,7 @@ The assignment helped in understanding practical SQL techniques used in real-wor
 * Verified the imported data using:
 
 ```sql
-SELECT * FROM superstore_raw;
+SELECT * FROM superstore1.superstore_raw;
 ```
 
 ---
