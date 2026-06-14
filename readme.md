@@ -1,3 +1,116 @@
+# Assignment 3 – SQL-Based Data Analysis Using Subqueries, CTEs, and Window Functions
+
+## What this Assignment is About
+
+This assignment focused on analyzing the Superstore dataset using advanced SQL concepts. The objective was to transform raw data into a structured database and use Subqueries, Common Table Expressions (CTEs), Window Functions, and Joins to solve business-related queries and generate customer sales insights.
+
+## Database Schema Used
+
+The database consists of four tables:
+
+* superstore_raw – Raw imported dataset
+* customers – Customer information
+* products – Product information
+* orders – Order transaction details
+
+### Entity Relationships
+
+* customers (1:N) orders
+* products (1:N) orders
+
+### Foreign Keys
+
+* orders.customer_id → customers.customer_id
+* orders.product_id → products.product_id
+
+## Steps I Followed
+
+### Step 1 – Creating Database and Importing Dataset
+
+* Created the database **superstore1**.
+* Imported the Superstore dataset into **superstore_raw**.
+* Verified imported records.
+
+### Step 2 – Data Cleaning and Preparation
+
+* Renamed columns containing spaces and special characters.
+* Improved readability and query execution.
+
+### Step 3 – Creating Relational Tables
+
+* Created customers, products, and orders tables.
+* Defined Primary Keys and Foreign Keys.
+
+### Step 4 – Populating Tables
+
+* Inserted records using SELECT DISTINCT.
+* Eliminated duplicate customer and product entries.
+
+### Step 5 – Using Subqueries
+
+* Found orders above average sales.
+* Identified highest sales order for each customer.
+
+### Step 6 – Using CTEs
+
+* Calculated total sales per customer.
+* Identified customers with above-average sales.
+
+### Step 7 – Using Window Functions
+
+* Ranked customers based on total sales.
+* Assigned row numbers to customer orders.
+* Identified top-performing customers.
+
+### Step 8 – Customer Sales Insights
+
+* Top 5 customers
+* Bottom 5 customers
+* Single-order customers
+* Above-average sales customers
+* Highest order value per customer
+
+## SQL Concepts Used
+
+* CREATE TABLE
+* PRIMARY KEY
+* FOREIGN KEY
+* SELECT DISTINCT
+* JOIN
+* Subqueries
+* Common Table Expressions (CTEs)
+* Window Functions
+* ROW_NUMBER()
+* RANK()
+* GROUP BY
+* HAVING
+* ORDER BY
+* SUM()
+* AVG()
+* MAX()
+* COUNT()
+
+## Output Files
+
+* main_solution.sql
+* README.md
+
+## Tools Used
+
+* MySQL Workbench
+* MySQL Database
+* Superstore Dataset
+
+## What I Learned From This Assignment
+
+* Database normalization and table design
+* Creating relationships using foreign keys
+* Using Subqueries for advanced filtering
+* Using CTEs for reusable query logic
+* Applying Window Functions for ranking and analysis
+* Combining JOINs, CTEs, and Window Functions
+* Generating customer sales insights from transactional data
+* Solving real-world business problems using SQL
 
 # Assignment 2 (A) – E-Commerce Database Analysis Using SQL
 
