@@ -1,3 +1,191 @@
+# Assignment 4 – Azure Data Factory and Cloud-Based Data Pipeline Implementation
+
+## What this Assignment is About
+
+This assignment focused on understanding Microsoft Azure cloud services and building an end-to-end data pipeline using Azure Storage Account and Azure Data Factory (ADF). The objective was to learn cloud resource management, data integration, metadata extraction, access control, and pipeline orchestration for moving data between storage locations.
+
+---
+
+## Azure Services Used
+
+### Resource Group
+
+Logical container used to organize and manage Azure resources.
+
+### Storage Account
+
+Cloud storage service used to store files and datasets.
+
+### Blob Container
+
+Storage location inside the Storage Account used for uploading and managing CSV files.
+
+### Azure Data Factory (ADF)
+
+Cloud-based data integration service used to create, schedule, and monitor data pipelines.
+
+---
+
+## Steps I Followed
+
+### Step 1 – Creating Azure Resources
+
+* Explored the Azure Portal.
+* Created a Resource Group to manage all project resources.
+* Verified successful deployment of resources.
+
+### Step 2 – Creating Storage Account and Blob Container
+
+* Created a Storage Account.
+* Created a Blob Container within the Storage Account.
+* Uploaded a CSV dataset to the container.
+* Verified file availability in Blob Storage.
+
+### Step 3 – Creating Azure Data Factory
+
+* Created an Azure Data Factory instance.
+* Explored ADF Studio components:
+
+  * Author
+  * Monitor
+  * Manage
+* Understood pipeline development and monitoring features.
+
+### Step 4 – Creating Linked Services
+
+* Configured Linked Service for Azure Blob Storage.
+* Tested connection successfully.
+* Established connectivity between ADF and Storage Account.
+
+### Step 5 – Creating Datasets
+
+* Created Source Dataset for the uploaded CSV file.
+* Created Destination Dataset for the target storage location.
+* Validated dataset configurations.
+
+### Step 6 – Using Get Metadata Activity
+
+* Added Get Metadata activity to the pipeline.
+* Retrieved file properties such as:
+
+  * File Name
+  * Last Modified Date
+  * Size
+  * Structure Information
+* Verified metadata extraction results.
+
+### Step 7 – Building Data Pipeline
+
+* Created a pipeline using Copy Data Activity.
+* Configured source dataset.
+* Configured destination dataset.
+* Mapped source and destination data.
+* Validated pipeline settings.
+
+### Step 8 – Pipeline Execution and Monitoring
+
+* Executed the pipeline using Debug mode.
+* Triggered the pipeline for actual execution.
+* Monitored execution status through ADF Monitor.
+* Verified successful data movement.
+
+### Step 9 – IAM Role Assignment and Access Management
+
+* Assigned Azure IAM roles:
+
+  * Reader
+  * Contributor
+* Configured permissions between Azure Data Factory and Storage Account.
+* Ensured secure access and resource management.
+
+### Step 10 – End-to-End Data Pipeline Validation
+
+* Implemented complete data flow:
+
+  Blob Storage → Azure Data Factory → Destination Storage
+
+* Validated metadata before data transfer.
+
+* Verified successful completion of the pipeline.
+
+* Confirmed destination file availability.
+
+---
+
+## Pipeline Workflow
+
+1. Upload CSV file to Blob Storage.
+2. Retrieve file metadata using Get Metadata activity.
+3. Validate file information.
+4. Copy data using Copy Data activity.
+5. Transfer data to destination storage.
+6. Monitor pipeline execution.
+7. Verify successful completion.
+
+---
+
+## Azure Concepts Used
+
+* Azure Resource Group
+* Azure Storage Account
+* Blob Storage
+* Azure Data Factory (ADF)
+* Linked Services
+* Datasets
+* Get Metadata Activity
+* Copy Data Activity
+* Pipeline Creation
+* Pipeline Monitoring
+* Debug and Trigger Execution
+* Identity and Access Management (IAM)
+* Reader Role
+* Contributor Role
+* Cloud Data Integration
+* ETL/Data Movement Pipeline
+
+---
+
+## Output Files
+
+* Resource Group Screenshot
+* Storage Account Screenshot
+* Blob Container Screenshot
+* Azure Data Factory Screenshot
+* Linked Service Configuration Screenshot
+* Dataset Configuration Screenshot
+* Pipeline Design Screenshot
+* Pipeline Execution Results Screenshot
+* Monitoring Dashboard Screenshot
+* Brief Project Summary
+
+---
+
+## Tools Used
+
+* Microsoft Azure Portal
+* Azure Storage Account
+* Azure Blob Storage
+* Azure Data Factory
+* Azure IAM (Identity and Access Management)
+* CSV Dataset
+
+---
+
+## What I Learned From This Assignment
+
+* Understanding Azure cloud architecture and services.
+* Creating and managing Azure resources.
+* Working with Azure Storage Accounts and Blob Containers.
+* Building data integration pipelines using Azure Data Factory.
+* Configuring Linked Services and Datasets.
+* Extracting file metadata using Get Metadata activity.
+* Implementing data movement using Copy Data activity.
+* Monitoring and troubleshooting pipeline execution.
+* Managing permissions using Azure IAM roles.
+* Designing and validating end-to-end cloud data pipelines.
+* Understanding practical ETL and data orchestration concepts in Azure.
+
+
 # Assignment 3 – SQL-Based Data Analysis Using Subqueries, CTEs, and Window Functions
 
 ## What this Assignment is About
