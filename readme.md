@@ -1,3 +1,112 @@
+# Assignment 5 – Apache Spark DataFrames: Data Cleaning, Transformations, and Aggregations
+
+## Objective
+
+Understand Apache Spark fundamentals and perform data cleaning, transformation, filtering, and aggregation using Spark DataFrames. Learn how Spark's in-memory processing improves performance over traditional MapReduce and build an efficient data processing pipeline.
+
+---
+
+## Dataset
+
+**Dataset:** `Spark_assignment_dataset.csv`
+
+---
+
+## Steps Performed
+
+### Step 1 – Spark Setup
+
+* Created a Spark Session.
+* Loaded the CSV dataset into a Spark DataFrame.
+* Verified schema and dataset contents.
+
+### Step 2 – Spark Fundamentals
+
+* Studied the limitations of MapReduce.
+* Understood Spark's in-memory processing and DataFrame architecture.
+
+### Step 3 – Data Cleaning
+
+* Removed duplicate records.
+* Handled null and empty values.
+* Cleaned inconsistent data entries.
+
+### Step 4 – Data Transformations
+
+* Applied filtering conditions.
+* Renamed columns.
+* Cast data types (Timestamp).
+* Modified DataFrame schema.
+
+### Step 5 – Aggregations and Grouping
+
+* Used `groupBy()` and `.agg()`.
+* Calculated count, sum, average, minimum, and maximum values.
+* Generated grouped analytical summaries.
+
+### Step 6 – Spark Concepts
+
+* Learned DataFrame immutability.
+* Understood Shuffle operations and wide transformations.
+* Built a complete Spark data processing pipeline combining cleaning, transformation, and aggregation.
+
+---
+
+## Spark Concepts Used
+
+* SparkSession
+* DataFrames
+* Schema Inference
+* Filtering
+* dropDuplicates()
+* na.fill()
+* groupBy()
+* agg()
+* count()
+* sum()
+* avg()
+* min()
+* max()
+* mean()
+* withColumnRenamed()
+* cast()
+* TimestampType
+* Wide Transformations
+* Shuffle Operations
+* DataFrame Immutability
+
+---
+
+## Output
+
+* Cleaned and transformed dataset
+* Filtered records
+* Aggregated statistics
+* Group-wise summaries
+* Revenue and sales analysis
+* Efficient Spark processing pipeline
+
+---
+
+## Tools Used
+
+* Apache Spark
+* PySpark
+* Python
+* Jupyter Notebook
+
+---
+
+## Learning Outcomes
+
+* Understood Spark architecture and DataFrame operations.
+* Performed data cleaning using Spark APIs.
+* Applied filtering, grouping, and aggregation techniques.
+* Learned schema modification and data type conversion.
+* Understood shuffle operations and wide transformations.
+* Built an end-to-end Spark DataFrame processing pipeline for scalable data analysis.
+
+
 # Assignment 4 – Azure Data Factory and Cloud-Based Data Pipeline Implementation
 
 ## What this Assignment is About
