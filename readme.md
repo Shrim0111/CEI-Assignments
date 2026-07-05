@@ -113,7 +113,8 @@ Understand Apache Spark architecture and perform efficient data processing using
 - Compared CSV and Parquet file formats for efficient storage and processing.
 - Built an end-to-end Spark ETL pipeline.
 - Followed Spark best practices for processing large datasets efficiently.
-```
+  
+---
 
 # Assignment 5 – Apache Spark DataFrames: Data Cleaning, Transformations, and Aggregations
 
