@@ -1,3 +1,120 @@
+# Assignment 6 – Spark Architecture, Data Processing, and Optimized File Handling
+
+## Objective
+
+Understand Apache Spark architecture and perform efficient data processing using DataFrame transformations, filtering, schema handling, optimized file formats, and performance optimization techniques.
+
+---
+
+## Dataset
+
+**Dataset:** `source.csv`
+
+---
+
+## Steps Performed
+
+### Step 1 – Spark Architecture
+
+- Studied the components of Spark Architecture.
+- Understood the roles of Driver, Cluster Manager, Worker Nodes, and Executors.
+- Learned different Spark execution modes.
+
+### Step 2 – Spark Execution Model
+
+- Learned Lazy Evaluation.
+- Understood DAG (Directed Acyclic Graph) and Lineage Graph.
+- Studied how Spark optimizes execution before running actions.
+
+### Step 3 – Reading Data
+
+- Loaded the CSV dataset into a Spark DataFrame.
+- Verified the schema using `printSchema()`.
+- Displayed sample records using `show()`.
+
+### Step 4 – Data Selection and Filtering
+
+- Selected required columns.
+- Applied filtering based on business conditions.
+- Retrieved only relevant records from the dataset.
+
+### Step 5 – DataFrame Modifications
+
+- Renamed columns using `withColumnRenamed()`.
+- Cast data types using `cast()`.
+- Added new columns using `withColumn()`.
+
+### Step 6 – Performance Optimization
+
+- Studied wide transformations and shuffle operations.
+- Learned Predicate Pushdown optimization.
+- Compared CSV and Parquet file formats for performance.
+
+### Step 7 – Data Pipeline
+
+- Handled null values.
+- Built a complete Spark pipeline (Read → Transform → Filter → Write).
+- Saved processed data into CSV and Parquet formats.
+
+### Step 8 – Spark Best Practices
+
+- Used `show()` instead of `collect()` for large datasets.
+- Selected only required columns.
+- Applied filters early to improve performance.
+
+---
+
+## Spark Concepts Used
+
+- Spark Architecture
+- SparkSession
+- DataFrames
+- Schema Handling
+- Data Transformations
+- Data Filtering
+- Lazy Evaluation
+- DAG
+- CSV & Parquet
+- Shuffle Operations
+- Predicate Pushdown
+- Data Pipeline
+
+---
+
+## Output
+
+- Loaded and processed the dataset
+- Filtered records
+- Modified DataFrame schema
+- Performance comparison of CSV and Parquet
+- Processed output files
+- Optimized Spark data pipeline
+- Execution results and performance insights
+
+---
+
+## Tools Used
+
+- Apache Spark
+- PySpark
+- Python
+- Jupyter Notebook
+
+---
+
+## Learning Outcomes
+
+- Understood Apache Spark architecture and execution model.
+- Learned Lazy Evaluation and DAG-based execution.
+- Read structured data with proper schema handling.
+- Applied DataFrame transformations and filtering operations.
+- Modified DataFrames by renaming columns and casting data types.
+- Understood Spark performance concepts such as Shuffle and Predicate Pushdown.
+- Compared CSV and Parquet file formats for efficient storage and processing.
+- Built an end-to-end Spark ETL pipeline.
+- Followed Spark best practices for processing large datasets efficiently.
+```
+
 # Assignment 5 – Apache Spark DataFrames: Data Cleaning, Transformations, and Aggregations
 
 ## Objective
