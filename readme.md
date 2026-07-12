@@ -1,128 +1,186 @@
-# Assignment 7 – Spark Architecture, Data Processing, and Optimized File Handling
+# Assignment – 7 Delta Lake MERGE Operations and Incremental Data Processing
 
-## Objective
+## What this Assignment is About
 
-Learn Apache Spark architecture and perform efficient data processing using Spark DataFrames, schema handling, filtering, transformations, performance optimization, and optimized file formats.
-
----
-
-## Dataset
-
-**Dataset:** `sample-superstore.csv`
+This assignment focuses on implementing incremental data processing using **Delta Lake** with **PySpark**. The objective was to create a clean customer master table from a raw dataset, simulate incremental data containing updates and new records, perform **MERGE** operations, and validate the changes using Delta Lake features.
 
 ---
 
-## Steps
+# Objective of the Assignment
 
-### 1. Study Spark Architecture
-- Understand Driver Program, Cluster Manager, Worker Nodes, Executors, and Tasks.
-- Learn how Spark distributes jobs for parallel processing.
-
-### 2. Understand Spark Execution
-- Learn Lazy Evaluation.
-- Study DAG (Directed Acyclic Graph) and Lineage.
-- Understand Jobs, Stages, and Tasks.
-
-### 3. Read the CSV Dataset
-- Load `source.csv` into a Spark DataFrame.
-- Infer schema automatically.
-- View schema using `printSchema()`.
-- Preview data using `show()`.
-
-### 4. Perform Data Selection
-- Select only the required columns.
-- Reduce unnecessary data processing.
-
-### 5. Modify the DataFrame
-- Rename columns using `withColumnRenamed()`.
-- Cast columns to appropriate data types.
-- Create new columns using `withColumn()`.
-
-### 6. Apply Filters
-- Filter Active products.
-- Filter High Priority records.
-- Filter records by Region.
-- Filter records based on Price and User ID.
-
-### 7. Perform Transformations and Actions
-- Apply `select()`, `filter()`, `withColumn()`, `cast()`, and `withColumnRenamed()`.
-- Execute actions such as `show()`, `count()`, and `printSchema()`.
-
-### 8. Optimize Performance
-- Study Wide Transformations.
-- Understand Shuffle Operations.
-- Learn Predicate Pushdown.
-- Compare CSV and Parquet performance.
-
-### 9. Handle Missing Values
-- Identify NULL values.
-- Remove or replace missing records.
-- Improve dataset quality.
-
-### 10. Build the Spark Pipeline
-- Read CSV data.
-- Validate schema.
-- Transform data.
-- Apply filters.
-- Handle missing values.
-- Save processed data.
-
-### 11. Save Processed Data
-- Write the final DataFrame to CSV.
-- Write the final DataFrame to Parquet.
-
-### 12. Follow Spark Best Practices
-- Use `show()` instead of `collect()`.
-- Select only required columns.
-- Apply filters early.
-- Use Parquet for optimized storage.
+Learn how to build an incremental ETL pipeline using Delta Lake by creating Delta tables, processing incremental data, performing MERGE operations (UPSERT), and validating changes.
 
 ---
 
-## Output
+# Dataset Used
 
-- Successfully loaded the dataset.
-- Displayed DataFrame schema.
-- Selected and modified required columns.
-- Filtered records based on business conditions.
-- Handled missing values.
-- Compared CSV and Parquet performance.
-- Built a complete Spark ETL pipeline.
-- Saved processed data in CSV and Parquet formats.
+The assignment was performed using the **Sample - Superstore.csv** dataset containing customer-related information such as:
 
----
-
-## Tools Used
-
-- Apache Spark
-- PySpark
-- Python
-- Jupyter Notebook
-- CSV
-- Parquet
+* Customer ID
+* Customer Name
+* Segment
+* City
+* State
+* Region
 
 ---
 
-## Resources
+# Steps I Followed
 
-- Apache Spark Documentation
-- PySpark Documentation
-- Spark SQL Guide
-- source.csv Dataset
+## Step 1 – Loading the Dataset
+
+Loaded the Superstore CSV dataset into a Spark DataFrame.
+
+Performed:
+
+* Reading CSV files
+* Automatic schema inference
+* Displaying sample records
+* Counting total records
 
 ---
 
-## Learning Outcomes
+## Step 2 – Creating the Customer Master Table
 
-- Understood Apache Spark architecture and execution model.
-- Learned Lazy Evaluation and DAG-based execution.
-- Read structured data with proper schema handling.
-- Applied DataFrame transformations and filtering.
-- Modified DataFrames by renaming columns and casting data types.
-- Understood Shuffle Operations and Predicate Pushdown.
-- Compared CSV and Parquet file formats for efficient storage and faster processing.
-- Built an end-to-end Spark ETL pipeline.
-- Followed Spark best practices for processing large datasets efficiently.
+Extracted customer-related columns from the dataset and created a separate customer master DataFrame.
+
+Performed:
+
+* Selecting required columns
+* Renaming columns
+* Removing duplicate customer records
+
+---
+
+## Step 3 – Data Cleaning
+
+Improved data quality by:
+
+* Identifying NULL values
+* Removing records with missing Customer ID or Customer Name
+* Eliminating duplicate records
+
+This ensured a clean customer master dataset.
+
+---
+
+## Step 4 – Saving as a Delta Table
+
+Stored the cleaned customer DataFrame as a Delta table.
+
+Performed:
+
+* Writing data in Delta format
+* Creating the `customer_master` table
+* Verifying saved records
+
+---
+
+## Step 5 – Creating Incremental Data
+
+Simulated incoming incremental data by:
+
+* Updating existing customer records
+* Creating new customer records
+* Combining updates and inserts into one incremental dataset
+* Saving both original and incremental datasets as CSV files
+
+---
+
+## Step 6 – Performing MERGE Operation
+
+Merged incremental data into the Delta table using Delta Lake's MERGE command.
+
+Performed:
+
+* Updating existing customer records
+* Inserting new customer records
+* Maintaining a single up-to-date customer master table
+
+---
+
+## Step 7 – Validating the Results
+
+Verified the success of the MERGE operation by:
+
+* Checking total record count
+* Viewing updated customer records
+* Displaying Delta table history using `DESCRIBE HISTORY`
+
+---
+
+## Step 8 – Displaying Final Output
+
+Displayed the final customer master table after the MERGE operation and compared record counts before and after processing.
+
+---
+
+# Delta Lake Concepts Used
+
+* Apache Spark
+* PySpark
+* Delta Lake
+* Delta Tables
+* Spark DataFrames
+* Data Cleaning
+* Duplicate Removal
+* Null Handling
+* Incremental Loading
+* MERGE (UPSERT)
+* Data Validation
+* Delta Table History
+* ETL Pipeline
+
+---
+
+# Output
+
+Generated outputs including:
+
+* Successfully loaded the Superstore dataset
+* Created a clean customer master DataFrame
+* Removed duplicate and null records
+* Saved data as a Delta table
+* Generated incremental customer data
+* Performed MERGE operation successfully
+* Updated existing customer records
+* Inserted new customer records
+* Validated changes using Delta table history
+* Displayed the final customer master dataset
+
+---
+
+# Tools Used
+
+* Apache Spark
+* PySpark
+* Delta Lake
+* Python
+* Jupyter Notebook
+* CSV Files
+
+---
+
+# Resources
+
+* Apache Spark Documentation
+* Delta Lake Documentation
+* PySpark Documentation
+* Jupyter Notebook
+* Sample Superstore Dataset
+
+---
+
+# What I Learned From This Assignment
+
+* Understood how Delta Lake supports reliable incremental data processing.
+* Learned to create and manage Delta tables using PySpark.
+* Built a clean customer master table from raw data.
+* Performed data cleaning by handling null values and removing duplicates.
+* Simulated incremental datasets containing updated and new customer records.
+* Used the **MERGE** command to implement UPSERT (update and insert) operations efficiently.
+* Validated changes using Delta Lake history and record counts.
+* Gained practical experience in building an end-to-end incremental ETL pipeline with Delta Lake and Spark.
 
 
 # Assignment 6 – Spark Architecture, Data Processing, and Optimized File Handling
