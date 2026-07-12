@@ -1,3 +1,130 @@
+# Assignment 7 – Spark Architecture, Data Processing, and Optimized File Handling
+
+## Objective
+
+Learn Apache Spark architecture and perform efficient data processing using Spark DataFrames, schema handling, filtering, transformations, performance optimization, and optimized file formats.
+
+---
+
+## Dataset
+
+**Dataset:** `sample-superstore.csv`
+
+---
+
+## Steps
+
+### 1. Study Spark Architecture
+- Understand Driver Program, Cluster Manager, Worker Nodes, Executors, and Tasks.
+- Learn how Spark distributes jobs for parallel processing.
+
+### 2. Understand Spark Execution
+- Learn Lazy Evaluation.
+- Study DAG (Directed Acyclic Graph) and Lineage.
+- Understand Jobs, Stages, and Tasks.
+
+### 3. Read the CSV Dataset
+- Load `source.csv` into a Spark DataFrame.
+- Infer schema automatically.
+- View schema using `printSchema()`.
+- Preview data using `show()`.
+
+### 4. Perform Data Selection
+- Select only the required columns.
+- Reduce unnecessary data processing.
+
+### 5. Modify the DataFrame
+- Rename columns using `withColumnRenamed()`.
+- Cast columns to appropriate data types.
+- Create new columns using `withColumn()`.
+
+### 6. Apply Filters
+- Filter Active products.
+- Filter High Priority records.
+- Filter records by Region.
+- Filter records based on Price and User ID.
+
+### 7. Perform Transformations and Actions
+- Apply `select()`, `filter()`, `withColumn()`, `cast()`, and `withColumnRenamed()`.
+- Execute actions such as `show()`, `count()`, and `printSchema()`.
+
+### 8. Optimize Performance
+- Study Wide Transformations.
+- Understand Shuffle Operations.
+- Learn Predicate Pushdown.
+- Compare CSV and Parquet performance.
+
+### 9. Handle Missing Values
+- Identify NULL values.
+- Remove or replace missing records.
+- Improve dataset quality.
+
+### 10. Build the Spark Pipeline
+- Read CSV data.
+- Validate schema.
+- Transform data.
+- Apply filters.
+- Handle missing values.
+- Save processed data.
+
+### 11. Save Processed Data
+- Write the final DataFrame to CSV.
+- Write the final DataFrame to Parquet.
+
+### 12. Follow Spark Best Practices
+- Use `show()` instead of `collect()`.
+- Select only required columns.
+- Apply filters early.
+- Use Parquet for optimized storage.
+
+---
+
+## Output
+
+- Successfully loaded the dataset.
+- Displayed DataFrame schema.
+- Selected and modified required columns.
+- Filtered records based on business conditions.
+- Handled missing values.
+- Compared CSV and Parquet performance.
+- Built a complete Spark ETL pipeline.
+- Saved processed data in CSV and Parquet formats.
+
+---
+
+## Tools Used
+
+- Apache Spark
+- PySpark
+- Python
+- Jupyter Notebook
+- CSV
+- Parquet
+
+---
+
+## Resources
+
+- Apache Spark Documentation
+- PySpark Documentation
+- Spark SQL Guide
+- source.csv Dataset
+
+---
+
+## Learning Outcomes
+
+- Understood Apache Spark architecture and execution model.
+- Learned Lazy Evaluation and DAG-based execution.
+- Read structured data with proper schema handling.
+- Applied DataFrame transformations and filtering.
+- Modified DataFrames by renaming columns and casting data types.
+- Understood Shuffle Operations and Predicate Pushdown.
+- Compared CSV and Parquet file formats for efficient storage and faster processing.
+- Built an end-to-end Spark ETL pipeline.
+- Followed Spark best practices for processing large datasets efficiently.
+
+
 # Assignment 6 – Spark Architecture, Data Processing, and Optimized File Handling
 
 ## Objective
