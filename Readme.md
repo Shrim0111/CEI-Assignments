@@ -1,3 +1,197 @@
+# Assignment – 8 E-Commerce Order Analytics System using Python and SQL
+
+## What this Assignment is About
+
+This assignment focuses on designing and developing an end-to-end data analytics system for an e-commerce business using Python and SQL. The project involves generating realistic datasets with intentional data quality issues, cleaning and validating the data using Pandas, loading it into a relational SQLite database, and performing advanced SQL analysis to extract meaningful business insights. The assignment also includes building an interactive command-line reporting tool for dynamic business reporting.
+
+---
+
+## Objective of the Assignment
+
+Design and develop an end-to-end data analytics system to process and analyze e-commerce order data using Python and SQL. Generate realistic datasets with intentional inconsistencies, perform data cleaning and validation using Pandas, ensure data integrity across multiple tables, implement advanced SQL queries including joins, aggregations, window functions, Common Table Expressions (CTEs), and cohort analysis, and build a command-line reporting tool capable of generating dynamic business summaries while handling critical edge cases.
+
+---
+
+## Dataset Used
+
+The project uses four synthetic datasets generated using the Faker library:
+
+- Customers
+- Orders
+- Order Items
+- Products
+
+These datasets contain realistic e-commerce information including:
+
+- Customer Details
+- Order Information
+- Product Details
+- Order Quantity
+- Unit Price
+- Discount Percentage
+- Order Dates
+- Delivery Status
+- Product Categories
+
+Intentional inconsistencies such as missing values, invalid formats, inconsistent text, and negative quantities were introduced to simulate real-world production data.
+
+---
+
+## Steps I Followed
+
+### Step 1 – Generating the Dataset
+
+Generated realistic e-commerce datasets using separate Python scripts for each table.
+
+Performed:
+
+- Creating synthetic customer data
+- Creating order data
+- Creating order item data
+- Creating product data
+- Injecting intentional data quality issues
+
+---
+
+### Step 2 – Data Cleaning and Validation
+
+Cleaned each dataset using Pandas to improve data quality.
+
+Performed:
+
+- Standardizing date formats
+- Handling missing Customer IDs
+- Validating email addresses
+- Cleaning inconsistent product names
+- Removing unnecessary whitespace
+- Standardizing text formatting
+- Checking referential integrity across tables
+- Validating foreign key relationships
+
+---
+
+### Step 3 – Loading Data into SQLite
+
+Loaded the cleaned datasets into a relational SQLite database.
+
+Performed:
+
+- Creating SQLite database
+- Importing cleaned CSV files
+- Creating relational tables
+- Verifying successful data loading
+
+---
+
+### Step 4 – SQL Data Analysis
+
+Performed business analysis using SQL queries ranging from basic to advanced.
+
+Performed:
+
+- Joins
+- Aggregations
+- GROUP BY analysis
+- Revenue calculations
+- Customer analysis
+- Product analysis
+- Window Functions
+- Common Table Expressions (CTEs)
+- Ranking Functions
+- Cohort Analysis
+- Customer Segmentation
+- Retention Analysis
+
+---
+
+### Step 5 – Building the Reporting Tool
+
+Developed an interactive command-line reporting application.
+
+Performed:
+
+- Selecting custom date ranges
+- Generating daily, weekly, and monthly reports
+- Calculating total orders
+- Calculating total revenue
+- Counting unique customers
+- Displaying top-selling products
+- Comparing current performance with the previous reporting period
+
+---
+
+### Step 6 – Handling Edge Cases
+
+Improved the robustness of the system by handling critical scenarios.
+
+Performed:
+
+- Missing values
+- Invalid email formats
+- Multiple date formats
+- Negative quantities representing returns
+- Duplicate product names
+- Orphan order records
+- Data validation checks
+
+---
+
+### Step 7 – Validating Results
+
+Verified the correctness of the complete analytics pipeline.
+
+Performed:
+
+- Validating cleaned datasets
+- Verifying SQLite tables
+- Executing SQL queries
+- Comparing analytical results
+- Testing reporting functionality
+
+---
+
+### Step 8 – Displaying Final Output
+
+Displayed the final cleaned datasets, SQL query results, and generated business reports to verify successful execution of the complete pipeline.
+
+---
+
+## Concepts Used
+
+- Python
+- Pandas
+- SQL
+- Data Cleaning
+- Joins
+- Aggregations
+- GROUP BY
+- Window Functions
+- Common Table Expressions (CTEs)
+- Ranking Functions
+- Command-Line Interface (CLI)
+- ETL Pipeline
+
+---
+
+## Output
+
+Generated outputs including:
+
+- Successfully generated realistic e-commerce datasets
+- Introduced intentional data quality issues
+- Cleaned and validated all datasets
+- Standardized inconsistent data formats
+- Verified referential integrity across tables
+- Loaded cleaned data into SQLite
+- Executed advanced SQL queries
+- Generated customer segmentation and revenue insights
+- Performed cohort and retention analysis
+- Built an interactive command-line reporting tool
+- Generated dynamic business reports
+- Successfully validated the complete end-to-end analytics pipeline
+
+
+
 # Assignment – 7 Delta Lake MERGE Operations and Incremental Data Processing
 
 ## What this Assignment is About
